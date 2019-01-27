@@ -1,5 +1,5 @@
 
-#clone or download angular module in your local machine and follow the below instructions to play around with angular stuff
+# clone or download angular module in your local machine and follow the below instructions to play around with angular stuff
 
 ## Development server
 
