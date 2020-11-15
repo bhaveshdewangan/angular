@@ -8,7 +8,7 @@ const route: Routes = [
   {path:'', component: HomeComponent},
   {path:'home', component: HomeComponent},
   {path:'contactus', component: ContactUsComponent},
-  {path: 'lazy', loadChildren:'app/lazy-component/lazy.module#LazyModule'}
+  {path: 'lazy', loadChildren:() => import('app/lazy-component/lazy.module').then(m => m.LazyModule)}
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(route);
