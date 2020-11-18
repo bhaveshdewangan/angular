@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-lazy-lode',
+  selector: 'lazy-lode',
   templateUrl: './lazy-lode.component.html',
-  styleUrls: ['./lazy-lode.component.css']
+  styleUrls: ['./lazy-lode.component.scss']
 })
 export class LazyLodeComponent implements OnInit {
 
