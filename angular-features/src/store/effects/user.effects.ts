@@ -6,7 +6,7 @@ import { catchError, delay, map, switchMap } from 'rxjs/operators';
 import { GetUsers, GetUsersFailed, GetUsersLoaded, UserActionTypes } from '../actions/user.actions';
 import { IUser } from '../models/user';
 import { HttpResponse } from '@angular/common/http';
-import { UserService } from '../../users/service/user.service';
+import { UserService } from '../../app/users/service/user.service';
 
 @Injectable()
 export class UserEffects {

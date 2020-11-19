@@ -8,7 +8,7 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { UserEffects } from './store/effects/user.effects';
+import { UserEffects } from '../store/effects/user.effects';
 import { UsersComponent } from './users/container/users.component';
 import { HttpClientModule } from '@angular/common/http';
 

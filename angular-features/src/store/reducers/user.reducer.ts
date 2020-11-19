@@ -1,9 +1,5 @@
-import { Action } from '@ngrx/store';
 import { UserActions, UserActionTypes } from '../actions/user.actions';
 import { IUser } from '../models/user';
-
-
-// export const userFeatureKey = 'user';
 
 export interface UserState {
   users: IUser[],
@@ -23,11 +19,8 @@ export function userReducer(state = initialState, action: UserActions): UserStat
   switch (action.type) {
 
     case UserActionTypes.GetUsers:
-      console.log("INSIDE GetUsers");
-      break;
-
     case UserActionTypes.GetUsersLoading:
-      console.log("INSIDE GetUsersLoading");
+      console.log("GET-USERS-LOADING");
       return {
         ...state,
         users: null,
@@ -37,7 +30,7 @@ export function userReducer(state = initialState, action: UserActions): UserStat
       };
 
     case UserActionTypes.GetUsersLoaded:
-      console.log("INSIDE GetUsersLoaded");
+      console.log("GET-USERS-LOADED");
       return {
         ...state,
         users: action.response.body,
@@ -47,6 +40,7 @@ export function userReducer(state = initialState, action: UserActions): UserStat
       };
 
     case UserActionTypes.GetUsersFailed:
+      console.log("GET-USERS-FAILED");
       return {
         ...state,
         users: null,
