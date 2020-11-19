@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Lazy Loading nothing but loading the component dynamically or loaded the component as per the user demands.
 Intially load everything is not a good user as well as developement experience. It will take more time to load
-everything that's why concept came of "Lazy-Loading"
+everything that's why concept came of "angular-features"
 
 ## ADVANTAGES OF LAZY LOADING
 

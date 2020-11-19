@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('lazy-loading App', () => {
+describe('angular-features App', () => {
   let page: AppPage;
 
   beforeEach(() => {
