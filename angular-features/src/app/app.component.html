@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <nav class="site-header">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a [routerLink] = "['users']">Users</a></li>
+        <li><a [routerLink] = "['lazy-loading']">Lazy-Component</a></li>
+      </ul>
+    </nav>
+  </div>  
+  <router-outlet></router-outlet>
+</div>

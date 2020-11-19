@@ -1,0 +1,25 @@
+<!-- <p>USERS WORKS</p> -->
+<div>
+  <div *ngIf="USERS_DATA.usersLoadingFailed$ | async"><p><b>Loading failed</b></p></div>
+  <div *ngIf="USERS_DATA.usersLoading$  | async"><p><b>Loading...</b></p></div>
+  <table *ngIf="!(USERS_DATA.usersLoading$  | async) && USERS_DATA.users && USERS_DATA.users.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Company</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of USERS_DATA.users; let i = index">
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.company}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

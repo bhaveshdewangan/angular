@@ -1,0 +1,23 @@
+{
+    "body": [
+      {
+        "balance": "111-111-111",
+        "picture": "enna's picture",
+        "age": "25",
+        "name": "Enna",
+        "gender": "female",
+        "company": "google",
+        "email": "enna@gmail.com"
+      },
+      {
+        "balance": "222-222-222",
+        "picture": "ryan's picture",
+        "age": "25",
+        "name": "Ryan",
+        "gender": "male",
+        "company": "google",
+        "email": "ryan@gmail.com"
+      }
+    ]
+}
+  
