@@ -1,7 +1,7 @@
 ### Here i have covered couple of angular or UI related topics/feature which will help you to build a standard project.
- * Angular Version Update
- * Ngrx Store
- * Lazy Loading
+ * ### Angular Version Update
+ * ### Ngrx Store
+ * ### Lazy Loading
 
 # LazyLoading
 
