@@ -1,3 +1,8 @@
+### Here i have covered couple of angular or UI related topics/feature which will help you to build a standard project.
+ * Angular Version Update
+ * Ngrx Store
+ * Lazy Loading
+
 # LazyLoading
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
