@@ -241,6 +241,9 @@ for example:
  please follow the my angular.json file having with this project, if you have any confusion.
  
  Now we need to serve the app...
+ ```bash
+  ng serve --configuration=es
+ ```
 
 	
 
