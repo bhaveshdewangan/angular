@@ -4,6 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "angular-features": {
+      "i18n": {
+        "locales": {
+          "en": "src/translate/messages.en.xlf",
+          "es": "src/translate/messages.es.xlf",
+          "pt": "src/translate/messages.pt.xlf"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -49,6 +56,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "es": {
+              "localize": ["es"]
+            },
+            "pt": {
+              "localize": ["pt"]
             }
           }
         },
@@ -60,6 +76,15 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-features:build:production"
+            },
+            "en": {
+              "browserTarget": "angular-features:build:en"
+            },
+            "es": {
+              "browserTarget": "angular-features:build:es"
+            },
+            "pt": {
+              "browserTarget": "angular-features:build:pt"
             }
           }
         },
