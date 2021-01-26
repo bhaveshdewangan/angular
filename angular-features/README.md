@@ -2,6 +2,7 @@
  * Angular Version Update
  * Ngrx Store
  * Lazy Loading
+ * Internationalization 
  
 # Angular Version Update
 
@@ -137,3 +138,112 @@ may cost more and might be possibale user not jump or navigate to see tha image.
 
 ### Performance Gain
 Same above example of Image Loading as we know if we not load all image upfront reduces load on web site. Fewer image requests mean fewer bytes to download. And fewer bytes to download means the page renders faster than if those bytes and requests were being made.
+
+
+# Internationalization 
+Internationalization is the process is making our app to support various language to extend a reach to world wide.
+
+## Localization
+Localization doesn’t only mean to changing your message from English to French, German or any language. It means adjusting your tone, look and feel to provide a product that is comfortable with your target audience.
+You need to cover every component of your app because picture speaks a thousand words and image have different meaning in different culture.
+Local regulation and legal requirement also important when you step in into foreign market.
+
+When you go with the built-in tools for your Angular localization there is a second decision to make:
+
+### Ahead-of-Time (AOT) compiler
+* With AOT your application can be served fast and better performance
+* As a disadvantage, need to serve an application for each locale due to all information including the content is built-in when compiling the app.
+* Decision which language should be shown to the users needs to happen with server side logic or by URL parameters.
+
+### Just-in-Time (JIT) compiler
+* Translations are dynamic but you need to take care of providing the translations in your application. However performance might decrease.
+
+
+### Setup:
+
+```bash
+ng add @angular/localize
+```
+* This will add the package to our angular app
+*	Update the polyfill.ts file which allows the project to take advantages of agular’s localization feature.
+*	The framework provide the i18n attribute to which will be used to mark an html element for the translation.
+*	If you want to translate the htm attribute, we will use the i18n-x where x will be the attribute name
+  For example: 
+  ```bash
+  <input i18n-placeholder placeholder=”search”></input>
+  ```
+  
+After preparing the template file for translation we will be ready to extract all the html element which marked for translation to translation source file.
+run the below command, It will create a folder called translation inside the src and will create messages.xlf file inside it.
+ ```bash
+  ng xi18n –output-path src/translate
+ ```
+ 
+Please create a copy of this file with the different local name which you want your app to serve, like "messages.es.xlf" and below source file you just need to add the "target" take and put your content translation based on the language that file has.
+
+for example:
+```bash
+  <trans-unit id="navigation-home" datatype="html">
+     <source>Home</source>
+     <target>Home Es</target>
+     <context-group purpose="location">
+       <context context-type="sourcefile">app/app.component.html</context>
+       <context context-type="linenumber">5</context>
+     </context-group>
+   </trans-unit>
+ ```
+ 
+ Now you need to configure few things in angular.json
+ #### Define locales in build configuration
+ Here you need to add the following json snippet in angular.json under the project -> "your app name"
+ 
+ ```bash
+  "i18n": {
+        "locales": {
+          "en": "src/translate/messages.en.xlf",
+          "es": "src/translate/messages.es.xlf",
+          "pt": "src/translate/messages.pt.xlf"
+        }
+     }
+ ```
+ 
+ #### Set the localize build configuration option
+ This will instruct the AOT compiler to use the translation configuration.
+ Here you need to add the following json snippet in angular.json under the "configurations" which comes inside architect -> build
+ 
+ ```bash
+  "en": {
+    "localize": ["en"]
+  },
+  "es": {
+    "localize": ["es"]
+  },
+  "pt": {
+    "localize": ["pt"]
+  }
+ ```
+ 
+ #### Configure for production build
+ Finally, we will add the custom locale-specific configurations. This will allow us to apply specific build options to a particular locale.
+ this will come under serve -> configuration and along with the production.
+ 
+ ```bash
+  "en": {
+    "browserTarget": "angular-features:build:en"
+  },
+  "es": {
+    "browserTarget": "angular-features:build:es"
+  },
+  "pt": {
+    "browserTarget": "angular-features:build:pt"
+  }
+ ```
+ please follow the my angular.json file having with this project, if you have any confusion.
+ 
+ Now we need to serve the app...
+
+	
+
+
+
+
