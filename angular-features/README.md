@@ -3,6 +3,7 @@
  * Ngrx Store
  * Lazy Loading
  * Internationalization 
+ * Internationalization using ngx-translation
  
 # Angular Version Update
 
