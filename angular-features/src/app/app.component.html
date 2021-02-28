@@ -2,14 +2,15 @@
   <div>
     <nav class="site-header">
       <ul>
-        <li><a i18n="@@navigation-home" routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a i18n="@@navigation-users" [routerLink] = "['users']">Users</a></li>
-        <li><a i18n="@@navigation-lazy-component" [routerLink] = "['lazy-loading']">Lazy-Component</a></li>
+        <li><a i18n="@@navigation-home" routerLink="/home" routerLinkActive="active">{{'MENU.HOME' | translate}}</a></li>
+        <li><a i18n="@@navigation-users" [routerLink] = "['users']">{{'MENU.USERS' | translate}}</a></li>
+        <li><a i18n="@@navigation-lazy-component" [routerLink] = "['lazy-loading']">{{'MENU.LAZY_COMPONENT' | translate}}</a></li>
         <div style="float: right; margin-top: 20px; margin-right: 17px;">
-          <select data-placeholder="Choose a Language...">
-            <option value="en">English</option>
+          <select #langSelect (change)="translateService.use(langSelect.value)">
+            <!-- <option value="en">English</option>
             <option value="pt">Portugese</option>
-            <option value="es">Espanish</option>
+            <option value="es">Espanish</option> -->
+            <option *ngFor="let lang of translateService.getLangs()" [value]="lang">{{lang}}</option>
           </select>  
         </div>
       </ul>

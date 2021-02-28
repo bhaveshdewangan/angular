@@ -245,6 +245,131 @@ for example:
   ng serve --configuration=es
  ```
 
+ # Internationalization Using NGX-TRANSLATION
+ Above we did the internationalization using Angular's in-built library, Now we are going to achieve the same using thrid party library
+ called "ngx-translation", I found the thrid party translation is easy to setup rather then using angualr's own library.
+
+
+## Setup:
+
+### Add ngx-transalate to your app 
+
+To add the required lubrary to our app we need to type the command on our console.
+```bash
+  npm install @ngx-translate/core @ngx-translate/http-loader --save
+ ```
+
+The @ngx-translate/core contains the core routines for the translation: The TranslateService and some pipes.
+
+The @ngx-translate/http-loader loads the translation files from your webserver.
+
+
+### App module configuration
+Now you have to init the translation TranslateModule in your app.module.ts:
+```bash
+  import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+  import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+  export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
+
+  @NgModule({
+    declarations: [
+      AppComponent,
+      HomeComponent,
+      UsersComponent
+    ],
+    imports: [
+      BrowserModule,
+      HttpClientModule,
+      routing,
+      StoreModule.forRoot(reducers, { metaReducers }),
+      !environment.production ? StoreDevtoolsModule.instrument() : [],
+      EffectsModule.forRoot([UserEffects]),
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }
+      )
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
+ ```
+ The HttpLoaderFactory is required for AOT (ahead of time) compilation in your project.
+
+ ### Initial Translate Service Setup
+
+ For doing initial translate service setup i have created a "TranslateUIService.ts" file where i perform the common task but you guys can
+ also do the same on app.component.ts file.
+
+ First, you have to inject TranslateService in the constructor.
+
+ The next step is to set the default language of your application using translate.setDefaultLang('en'). In a real app you can of course load language from the user's settings. Also user the browser language also to change the language of your application.
+ Below is the common service file code.
+
+ ```bash
+  import { Injectable } from "@angular/core";
+  import { TranslateService } from "@ngx-translate/core";
+
+  @Injectable()
+  export class TranslateUiService {
+      constructor(private translateService: TranslateService) {}
+
+      translateInIt() {
+          this.translateService.addLangs(['en', 'pt', 'es']);
+          this.translateService.setDefaultLang('en');
+          const browserLang = this.translateService.getBrowserLang();
+          this.translateService.use(browserLang.match(/en|es|pt|/) ? browserLang : 'en');
+      }
+  }}
+ ```
+
+ based on your application requirement you can play around with the TranslateUiService file.
+
+
+ ### Create a translation file
+
+ Each language is stored in a separate .json file. Let's create the JSON file for the English translation: assets/i18n/en.json. Similarly
+ you can create the JSON file for the language you want to suppot.
+ Below is the example of two language JSOn file.
+
+#### en.json
+ ```bash
+  {
+      "MENU": {
+          "HOME": "Home",
+          "USERS": "Users",
+          "LAZY_COMPONENT": "Lazy Component"
+      }
+  }
+ ```
+
+ #### es.json
+ ```bash
+{
+    "MENU": {
+        "HOME": "Home es",
+        "USERS": "Users es",
+        "LAZY_COMPONENT": "Lazy Component es"
+    }
+}
+```
+
+Now we need to serve the app...
+ ```bash
+  ng serve --configuration=es
+ ```
+
+
+
+
+
 	
 
 
