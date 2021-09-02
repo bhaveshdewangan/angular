@@ -4,7 +4,8 @@
       <ul>
         <li><a i18n="@@navigation-home" routerLink="/home" routerLinkActive="active">{{'MENU.HOME' | translate}}</a></li>
         <li><a i18n="@@navigation-users" [routerLink] = "['users']">{{'MENU.USERS' | translate}}</a></li>
-        <li><a i18n="@@navigation-lazy-component" [routerLink] = "['lazy-loading']">{{'MENU.LAZY_COMPONENT' | translate}}</a></li>
+        <li><a i18n="@@navigation-lazy-component" [routerLink] = "['lazy-loading-component']">{{'MENU.LAZY_COMPONENT' | translate}}</a></li>
+        <li><a i18n="@@navigation-lazy-component" [routerLink] = "['lazy-loading-image']">{{'MENU.LAZY_LOADING_IMAGE_COMPONENT' | translate}}</a></li>
         <div style="float: right; margin-top: 20px; margin-right: 17px;">
           <select #langSelect (change)="translateService.use(langSelect.value)">
             <!-- <option value="en">English</option>

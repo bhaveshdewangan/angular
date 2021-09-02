@@ -34,7 +34,8 @@ nav li {
   min-width: 70px;
   color: white;
   text-align: center; 
-  padding: 10px 0;
+  padding: 10px 0px;
+  padding-right: 5px;
   a {
     color: white;
     text-decoration: none;
@@ -60,7 +61,6 @@ nav button {
       width: 100%;
       border-bottom: 1px solid white;
       padding: 5px 0;
-      
   }
   
   nav {

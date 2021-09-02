@@ -2,6 +2,7 @@
     "MENU": {
         "HOME": "Home pt",
         "USERS": "Users pt",
-        "LAZY_COMPONENT": "Lazy Component pt"
+        "LAZY_COMPONENT": "Lazy Component pt",
+        "LAZY_LOADING_IMAGE_COMPONENT": "Lazy Loading Image Component pt"
     }
 }
