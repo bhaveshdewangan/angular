@@ -1,3 +1,43 @@
 <p>
   home works!
 </p>
+
+<div>
+  <button (click)="doComplexTask()">Complex task</button>
+  <button (click)="doEasyTask()">Easy Task</button>
+
+  <h1 id="complex"></h1>
+  <h1 id="easy"></h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <span>Turbine Name</span>
+          </th>
+          <th>
+            <span>Turbine ID</span>
+          </th>
+          <th>
+            <span>Turbine Serial Number</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container >
+          <tr *ngFor="let turbine of turbines; let i=index">
+            <td>
+              {{turbine.turbineName}} {{i}}
+            </td>
+            <td>
+              {{turbine.turbineId}} 
+            </td>
+            <td>
+              {{turbine.turbineSerialNo}}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

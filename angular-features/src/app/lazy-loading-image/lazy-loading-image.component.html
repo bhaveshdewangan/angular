@@ -1,0 +1,12 @@
+<p>lazy-loading-image works!</p>
+
+<div style="padding: auto; height: auto; width: 100%; display: flex; align-items: center; flex-direction: column;">
+    <ng-container *ngFor="let url of imageUrls; let i = index">
+        <ng-container *ngIf="i < 3"> 
+            <img src="{{url}}" id="i">
+        </ng-container>
+        <ng-container *ngIf="i >= 3"> 
+            <img class="lazy" attr.data-src="{{url}}" id="{{i}}">
+        </ng-container>
+    </ng-container>
+</div>
