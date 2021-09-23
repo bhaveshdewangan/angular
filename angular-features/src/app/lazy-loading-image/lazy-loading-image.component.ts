@@ -29,7 +29,7 @@ export class LazyLoadingImageComponent implements OnInit {
           console.log("%c INTERSECTION OBSERVER AVAILABLE", 'background:brown; color:white');
           this.intersectionObserverAPiBasedImgLazyLoading()
         } else {
-          console.log("%c DOM IN READY STATE LOADED", 'background:blue; color:white');
+          console.log("%c DOM IN READY STATE LOADED", 'background:purple; color:white');
           this.readystatechangeEventBasedImgLazyLoading();
           // this.loadEventBasedImgLazyLoading();
         }
